@@ -1,0 +1,153 @@
+#header {
+    background-color: white;
+    display: flex;
+    position: sticky;
+    top: 0px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    z-index: 1;
+}
+
+.parteHeaderInterna {
+    display: flex;
+    width: 80%;
+    padding: 10px;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sezione-logo-nomeCompagnia {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 10px;
+    height: auto;
+    width: auto;
+}
+
+/* logo e nomeCompagnia */
+#logo {
+    background-image: url('../imgs/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 100px;
+    height: 50px;
+}
+
+#nomeCompagnia {
+    font-size: 2.5rem;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color: #333;
+}
+
+/* stile per i link di navigazione */
+
+.sezione-navigazione {
+    display: flex;
+    gap: 20px;
+    margin: 20px;
+}
+
+#accesso-cliente,
+#sezione-informazioni {
+    width: 30px;
+    height: 30px;
+    background-color: lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#accesso-cliente {
+    background-image: url('../imgs/utente.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#sezione-informazioni {
+    width: 30px;
+    height: 30px;
+    background-image: url('../imgs/info.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* stile per lo switch lingua */
+
+.lingua-pagina {
+    width: 45px;
+    height: 30px;
+    border-radius: 5px;
+    background-image: url('../imgs/lingue/it.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.selezione-lingua-container {
+    display: block;
+    position: relative;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+#cambio-lingua {
+    background-color: grey;
+    position: inherit;
+    display: flex;
+    top: 75px;
+    justify-items: center;
+    justify-content: center;
+    padding: 10px;
+    right: 95%;
+    width: 100px;
+    height: 50px;
+    gap: 5px;
+    border-radius: 7.5px;
+    z-index: 10;
+}
+
+.lingua {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: inherit;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#italiano,
+#inglese,
+#spagnolo {
+    width: 50px;
+    height: 50px;
+}
+
+#italiano {
+    background-image: url('../imgs/lingue/it.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#inglese {
+    background-image: url('../imgs/lingue/eng.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#spagnolo {
+    background-image: url('../imgs/lingue/esp.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

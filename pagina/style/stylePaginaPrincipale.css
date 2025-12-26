@@ -1,0 +1,13 @@
+html,
+body {
+    margin: 0;
+    padding: 0px;
+}
+
+hr {
+    width: 100%;
+    border: 0.5px solid white;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px
+}
