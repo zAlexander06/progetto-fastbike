@@ -7,7 +7,13 @@
     </button>
     <script>
         document.getElementById("btn-logo-info").addEventListener("click", function () {
-            window.location.href = "../../index.php";
+            const langCorrente = document.documentElement.lang;
+
+            if (langCorrente === "it")
+                window.location.href = "../../it.html";
+            else if (langCorrente === "en") {
+                window.location.href = "../../eng.html";
+            }
         });
     </script>
 </div>
