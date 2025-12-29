@@ -1,3 +1,32 @@
+@media (max-width: 800px) {
+    .contentFooter {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .informazioniAzienda {
+        margin-top: 10px;
+        border-right: none !important;
+        box-shadow: none !important;
+        width: 100% !important;
+        padding: 10px 0px 10px 0px;
+    }
+
+    .parte-testo-info p {
+        font-size: 15px !important;
+    }
+
+    .separatore-footer {
+        display: block !important;
+    }
+
+    .altreInformazioni,
+    .infoDentro-footer {
+        width: 100% !important;
+    }
+}
+
 #footer {
     display: flex;
     flex-direction: column;
@@ -10,6 +39,11 @@
     height: auto;
     color: white;
     box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.separatore-footer {
+    display: none;
+    margin: 0px;
 }
 
 .contentFooter {
@@ -207,25 +241,57 @@
     justify-content: space-evenly;
 }
 
-.sezione-chiSiamo,
 .sezione-contatti {
     display: flex;
     flex-direction: column;
-    width: 40%;
-    background-color: rgba(0, 0, 0, 0.301);
 }
 
-.sezione-chiSiamo h4,
 .sezione-contatti h4 {
     margin: 0px 0px 20px 0px;
+    font-size: 25px;
+    text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
 
 .diverseSezioni {
     display: grid;
     width: 100%;
-    height: 20px;
-    background-color: black;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.sede-link {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    opacity: 0.9;
+    transition: all 0.3s;
+}
+
+#email-sede-img {
+    background-image: url("https://www.svgrepo.com/show/502647/email-open.svg");
+}
+
+#tel-sede-img {
+    background-image: url('https://www.svgrepo.com/show/456709/telephone.svg');
+}
+
+#map-sede-img {
+    background-image: url('https://www.svgrepo.com/show/532546/map.svg');
+}
+
+#email-sede-img,
+#tel-sede-img,
+#map-sede-img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 30px;
+    height: 25px;
+}
+
+.sede-link:hover {
+    opacity: 1;
+    color: white;
 }
 
 #copyrightPagina,

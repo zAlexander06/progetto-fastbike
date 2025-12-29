@@ -1,7 +1,56 @@
 html,
 body {
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0px;
+    height: 100%;
+}
+
+@media (max-width: 500px) {
+    #appPagina {
+        display: none !important;
+    }
+
+    #bloccoContenuto {
+        display: block !important;
+    }
+}
+
+#bloccoContenuto {
+    display: none;
+    background-color: rgb(182, 1, 1);
+    height: 100%;
+}
+
+.containerBlocco {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    color: rgb(231, 231, 231);
+}
+
+#img-attenzione {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e4/Segnale_generico.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.contenutoBloccoTesto {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#appPagina {
+    display: block;
+    height: 100%;
 }
 
 hr {

@@ -11,3 +11,5 @@ if (!$conn) {
 }
 
 echo "Connessione riuscita!";
+
+mysqli_close($conn);
