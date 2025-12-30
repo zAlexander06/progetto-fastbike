@@ -3,10 +3,11 @@
         <button id="btn-logo">
             <div id="logo"></div>
             <div id="nomeCompagnia">
-                <span>Fastbike Inc.</span>
+                <span>Fastbike</span>
             </div>
         </button>
     </div>
+
     <div class="sezione-navigazione">
         <div id="lingua-pagina">
             <div class="selezione-lingua-container">
@@ -30,16 +31,24 @@
                 </div>
             </div>
         </div>
+
         <script>
             document.getElementById("lingua-pagina").addEventListener("mouseenter", mostraOpzioniLingua);
             document.getElementById("lingua-pagina").addEventListener("mouseleave", nascondiOpzioniLingua);
         </script>
+
         <div id="accesso-cliente"></div>
         <div id="sezione-informazioni"></div>
 
         <script>
             document.getElementById("accesso-cliente").addEventListener("click", function () {
-                window.location.href = "./noIndex/php/login.php";
+                const langCorrente = document.documentElement.lang;
+
+                if (langCorrente === "en")
+                    window.location.href = "./noIndex/en/php/login.php";
+                else {
+                    window.location.href = "./noIndex/it/php/login.php";
+                }
             });
 
             document.getElementById("sezione-informazioni").addEventListener("click", function () {
@@ -53,4 +62,17 @@
             });
         </script>
     </div>
+</div>
+
+<div id="menu-navigazione-container">
+    <script>
+        const langCorrente = document.documentElement.lang;
+
+        if (langCorrente == "en") {
+            $(function () { $("#menu-navigazione-container").load('includes/en/header-menu.html'); });
+        } else if (langCorrente == "it") {
+            $(function () { $("#menu-navigazione-container").load('includes/it/header-menu.html'); });
+        }
+
+    </script>
 </div>

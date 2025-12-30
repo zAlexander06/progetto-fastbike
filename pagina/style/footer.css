@@ -25,6 +25,10 @@
     .infoDentro-footer {
         width: 100% !important;
     }
+
+    .social-email {
+        flex-direction: column;
+    }
 }
 
 #footer {

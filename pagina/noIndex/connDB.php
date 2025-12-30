@@ -1,15 +1,20 @@
 <?php
+
 $server = "localhost";
 $username = "root";
 $password = "";
-$database = ""; // Come dovremo chiamare il database?, funziona, ma va specificato il nome del database
+$database = "FastbikeDB"; // Come dovremo chiamare il database?, funziona, ma va specificato il nome del database
 
-$conn = mysqli_connect($server, $username, $password, $database);
+$conn = mysqli_connect($server, $username, $password);
 
 if (!$conn) {
     die("Connessione fallita: " . mysqli_connect_error());
 }
 
-echo "Connessione riuscita!";
+$query_create_db = "CREATE DATABASE IF NOT EXISTS $database";
 
-mysqli_close($conn);
+if (mysqli_query($conn, $query_create_db)) {
+    mysqli_close($conn);
+} else {
+    echo "Errore nella creazione del database: " . mysqli_error($conn);
+}

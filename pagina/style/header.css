@@ -10,6 +10,36 @@
         height: 0px;
         visibility: hidden;
     }
+
+    .btn-menu-navigazione {
+        display: block !important;
+    }
+
+    #btn-menu-navigazione {
+        display: block !important;
+    }
+
+    #dialog-menu {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+}
+
+@media (max-width: 600px) {
+    #dialog-menu {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 500px) {
+    #nomeCompagnia {
+        font-size: 2rem !important;
+    }
+
+    #logo {
+        width: 60px !important;
+        height: 40px !important;
+    }
 }
 
 #header {
@@ -20,7 +50,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 120px;
+    height: 100px;
     z-index: 1;
 }
 
@@ -42,11 +72,150 @@
     width: auto;
 }
 
+/* stile per il menu navigazione */
+#btn-menu-navigazione {
+    background-image: url('https://www.svgrepo.com/show/348740/menu.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#dialog-menu-container {
+    position: absolute;
+    top: 0px;
+    /*
+    valore minimo che diamo (-100%), valore massimo (0px)
+    */
+    left: -100%;
+    width: 100%;
+    background-color: transparent;
+    z-index: 2;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.blur-dietro {
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    transition: backdrop-filter 1s foreward;
+    /* Effetto fluido */
+}
+
+#dialog-menu {
+    display: flex;
+    width: 70%;
+    background-color: white;
+    flex-direction: column;
+    height: 100vh;
+}
+
+@keyframes mostraMenu {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+@keyframes nascondiMenu {
+    0% {
+        left: 0px;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+.chiusura-menu {
+    padding: 24px 20px;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#btn-chiudi-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+}
+
+#img-chiudi-menu {
+    background-image: url('https://www.svgrepo.com/show/499592/close-x.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: all 0.15s ease-in-out;
+}
+
+#img-chiudi-menu:hover {
+    background-color: rgb(192, 192, 192);
+}
+
+.diverse-categorie-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 20px 20px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.elemento-categoria-menu {
+    font-size: 1.25rem;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+}
+
+.img-freccia-link {
+    background-image: url('https://www.svgrepo.com/show/390864/arrow-right-bold.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 24px;
+}
+
+.link-menu-pagina {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+    text-decoration: none;
+    color: black;
+    transition: all 0.25s ease-in-out;
+}
+
+.link-menu-pagina:hover {
+    color: rgb(0, 153, 255);
+}
+
 /* logo e nomeCompagnia */
 #btn-logo {
     display: flex;
+    align-items: flex-end;
     background-color: transparent;
     border: 0px;
+    gap: 7.5px;
     cursor: default;
 }
 
@@ -55,12 +224,12 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
-    width: 100px;
+    width: 80px;
     height: 50px;
 }
 
 #nomeCompagnia {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     font-family: 'Montserrat';
     font-weight: bold;
     color: #333;
@@ -77,9 +246,10 @@
 #sezione-informazioni {
     width: 30px;
     height: 30px;
-    background-color: lightgray;
+    background-color: rgba(211, 211, 211, 0);
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #accesso-cliente {
@@ -96,6 +266,11 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+#accesso-cliente:hover,
+#sezione-informazioni:hover {
+    background-color: rgb(185, 185, 185);
 }
 
 /* stile per lo switch lingua */
@@ -224,4 +399,6 @@
     background-color: transparent;
     border: 0px;
     cursor: pointer;
+    align-items: flex-end;
+    gap: 7.5px;
 }
