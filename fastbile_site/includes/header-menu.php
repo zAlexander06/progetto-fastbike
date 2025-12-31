@@ -8,26 +8,26 @@
         </div>
         <ul class="diverse-categorie-container">
             <li class="elemento-categoria-menu">
-                <a href="./noIndex/it/php/login.php" class="link-menu-pagina">
-                    <span class="testo-link-menu">Accedi</span>
+                <a href="./noIndex/auth/login.php" class="link-menu-pagina">
+                    <span class="testo-link-menu"><?php echo $testo['nav_accedi'] ?></span>
                     <div class="img-freccia-link"></div>
                 </a>
             </li>
             <li class="elemento-categoria-menu">
                 <a href="" class="link-menu-pagina">
-                    <span class="testo-link-menu">Noleggia una bici</span>
+                    <span class="testo-link-menu"><?php echo $testo['nav_noleg-bici'] ?></span>
                     <div class="img-freccia-link"></div>
                 </a>
             </li>
             <li class="elemento-categoria-menu">
                 <a href="" class="link-menu-pagina">
-                    <span class="testo-link-menu">Info</span>
+                    <span class="testo-link-menu"><?php echo $testo['nav_info'] ?></span>
                     <div class="img-freccia-link"></div>
                 </a>
             </li>
             <li class="elemento-categoria-menu">
                 <a href="" class="link-menu-pagina">
-                    <span class="testo-link-menu">Contatti</span>
+                    <span class="testo-link-menu"><?php echo $testo['nav_contatti'] ?></span>
                     <div class="img-freccia-link"></div>
                 </a>
             </li>
