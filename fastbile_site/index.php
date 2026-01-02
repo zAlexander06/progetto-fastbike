@@ -42,7 +42,7 @@ $pagina = $_GET['page'] ?? 'home';
             if (file_exists($file_pagina)) {
                 include $file_pagina;
             } else {
-                echo "<h1>404 - Pagina non trovata</h1>";
+                include "includes/urlSbagliato.php";
             }
             ?>
         </main>

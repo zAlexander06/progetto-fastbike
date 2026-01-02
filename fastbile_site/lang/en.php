@@ -12,7 +12,8 @@ $testo = [
     "nav_noleg-bici"  => "Rent a bike",
     "nav_info" => "Informations",
     "nav_contatti" => "Contacts",
-    "header-bandiera_img" => "imgs/lingue/eng.png",
+    "login-btn-homepage" => "Back to Homepage",
+    "header-bandiera_img" => "https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg",
 
     // footer
     "footer-desc-azienda" => "We offer cutting-edge e-bike rental solutions to transform every journey into a fast, safe, and environmentally friendly experience. Ride with us toward the future of smart cities.",
@@ -24,10 +25,26 @@ $testo = [
 ];
 
 $testo_login = [
+    "titolo-pagina-registrazione" => "Registration new user",
     "login-btn" => "Log-in",
     "login-testo-nuovo-utente"  => "New User?",
     "login-link-nuovo-utente"  => "Create an account!",
     "login-testo-credenziali" => "Lost your credentials?",
-    "login-link-credenziali" => "Recover it here!",
-    "login-btn-homepage" => "Back to Homepage"
+    "login-link-credenziali" => "Recover it here!"
+];
+
+$testo_registrazione = [
+    "titolo-pagina-registrazione" => "New user registration",
+    "registrazione-titolo" => "Registration",
+    "registrazione-campi-obb" => "Obbligatory fields (*)",
+    "registrazione-testo-nome" => "Name",
+    "registrazione-testo-cognome" => "Surname",
+    "registrazione-testo-numTelefono" => "Telephone Number",
+    "registrazione-testo-dataNascita" => "Date of Birth",
+    "registrazione-testo-documento" => "Document",
+    "registrazione-testo-codFiscale" => "Tax ID code / DNI",
+    "registrazione-testo-conv-pass" => "Convalidate",
+    "registrazione-btn" => "Register Here!",
+    "registrazione-testo-login" => "Do you have an account?",
+    "registrazione-link-login" => "Login here!",
 ];

@@ -12,7 +12,8 @@ $testo = [
     "nav_noleg-bici"  => "Noleggia una bici",
     "nav_info" => "Info",
     "nav_contatti" => "Contatti",
-    "header-bandiera_img" => "./imgs/lingue/it.png",
+    "header-bandiera_img" => "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+    "login-btn-homepage" => "torna Pagina Principale",
 
     // footer
     "footer-desc-azienda" => "Offriamo soluzioni di noleggio e-bike all'avanguardia per trasformare ogni spostamento in un'esperienza veloce, sicura e rispettosa dell'ambiente. Pedala con noi verso il futuro delle smart city.",
@@ -24,10 +25,26 @@ $testo = [
 ];
 
 $testo_login = [
+    "titolo-pagina-login" => "Login",
     "login-btn" => "Entra",
     "login-testo-nuovo-utente"  => "Nuovo utente?",
     "login-link-nuovo-utente"  => "Crea nuovo account",
     "login-testo-credenziali" => "Perso le credenziali?",
-    "login-link-credenziali" => "Recupera qui!",
-    "login-btn-homepage" => "Back to Homepage"
+    "login-link-credenziali" => "Recupera qui!"
+];
+
+$testo_registrazione = [
+    "titolo-pagina-registrazione" => "Registrazione nuovo utente",
+    "registrazione-titolo" => "Registrazione",
+    "registrazione-campi-obb" => "campi Obbligatori (*)",
+    "registrazione-testo-nome" => "Nome",
+    "registrazione-testo-cognome" => "Cognome",
+    "registrazione-testo-numTelefono" => "Numero di telefono",
+    "registrazione-testo-dataNascita" => "Data di Nascita",
+    "registrazione-testo-documento" => "Documento (Codice Fiscale)",
+    "registrazione-testo-codFiscale" => "Codice Fiscale",
+    "registrazione-testo-conv-pass" => "Convalida",
+    "registrazione-btn" => "Registrati",
+    "registrazione-testo-login" => "Hai un'account?",
+    "registrazione-link-login" => "Accedi!",
 ];

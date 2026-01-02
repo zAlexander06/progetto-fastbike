@@ -1,3 +1,17 @@
+<?php
+$index = "../index.php";
+$paginaCorrente = "info.php";
+
+$lang = $_GET['lang'] ?? 'it';
+$file_lingua = "../lang/{$lang}.php";
+
+if (file_exists($file_lingua)) {
+    include $file_lingua;
+} else {
+    include "../lang/en.php";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -18,7 +32,7 @@
     </div>
     <app id="appPagina">
         <header id="header">
-            <?php include "../includes/header-minimal.html"; ?>
+            <?php include "../includes/header-minimal.php"; ?>
         </header>
         <main class="mainPagina">
         </main>

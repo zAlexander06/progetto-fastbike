@@ -1,0 +1,347 @@
+@media (max-width: 1500px) {
+
+    .register-container {
+        justify-content: unset !important;
+    }
+
+    .titolo-campiObb {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 5px;
+    }
+
+    .more-containers-input {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    .more-input-flex-left,
+    .more-input-flex-right {
+        align-items: flex-start !important;
+        width: 100% !important;
+        gap: 5px !important;
+    }
+
+    .more-input-flex-left input,
+    .more-input-flex-right input {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 1150px) {
+    .mainPagina {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .page-img-container {
+        display: none !important;
+    }
+
+    .login-container,
+    .register-container {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .register-container {
+        justify-content: unset !important;
+    }
+
+    .loginForm,
+    .sezione-newUtente-recupero,
+    .sezione-ritorno-login,
+    .registerForm {
+        width: 70% !important;
+    }
+
+    .sezione-newUtente-recupero,
+    .sezione-ritorno-login {
+        flex-direction: row !important;
+        justify-content: space-between;
+    }
+
+    .nuovo-utente,
+    .ritorno-login {
+        align-items: flex-start;
+    }
+
+    .recupero-utente {
+        align-items: flex-end;
+    }
+
+    .titolo-campiObb {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+    }
+
+    .more-containers-input {
+        flex-direction: row !important;
+    }
+
+    .more-input-flex-left,
+    .more-input-flex-right {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .more-input-flex-left input,
+    .more-input-flex-right input {
+        width: calc(50% + 80px);
+    }
+
+    .more-input-flex-left {
+        align-items: flex-start;
+    }
+
+    .more-input-flex-right {
+        align-items: flex-end;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .register-container {
+        justify-content: unset !important;
+    }
+
+    .titolo-campiObb {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 5px;
+    }
+
+    .more-containers-input {
+        flex-direction: column !important;
+    }
+
+    .more-input-flex-left,
+    .more-input-flex-right {
+        align-items: flex-start !important;
+        width: 100% !important;
+        gap: 5px !important;
+    }
+
+    .more-input-flex-left input,
+    .more-input-flex-right input {
+        width: 100% !important;
+    }
+}
+
+@media (max-height: 613px) {
+    .login-container {
+        justify-content: unset !important;
+    }
+}
+
+.mainPagina {
+    height: calc(100% - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.page-img-container {
+    display: block;
+    width: 50%;
+    height: 100%;
+}
+
+.page-img {
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/14/03/48/father-1822528_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.login-container,
+.register-container {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.login-container h2,
+.register-container h2 {
+    margin: 0px;
+}
+
+/* stile per il campo del form LOGIN*/
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 50%;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.singoloInput-login {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* stile per i singoli input GLOBALI */
+
+.input-login,
+.input-register {
+    height: 35px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+#email::placeholder,
+#nome::placeholder,
+#cognome::placeholder,
+#numTelefono::placeholder,
+#dataNascita::placeholder,
+#codFiscale::placeholder,
+#password::placeholder #password::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+#email:hover,
+#nome:hover,
+#cognome:hover,
+#numTelefono:hover,
+#dataNascita:hover,
+#codFiscale:hover,
+#password:hover #password:hover {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 162, 255, 0.5);
+}
+
+#email:focus,
+#nome:focus,
+#cognome:focus,
+#numTelefono:focus,
+#dataNascita:focus,
+#codFiscale:focus,
+#password:focus #password:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: rgb(0, 162, 255);
+}
+
+/* stile per il pulsante di invio */
+
+.form-btn-invio {
+    width: 100%;
+    height: 40px;
+}
+
+.form-btn-invio button {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 162, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-btn-invio button:hover {
+    background-color: #1c02ff;
+}
+
+/* stile per la parte sotto del form */
+.sezione-newUtente-recupero,
+.sezione-ritorno-login {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.nuovo-utente,
+.recupero-utente,
+.ritorno-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 0px;
+    font-size: 15px;
+}
+
+/* stile per il form di REGISTRAZIONE */
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 50%;
+}
+
+.titolo-campiObb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.register-form-container {
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.input-registrazioni-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+/* stile per i container del form registrazione */
+.more-containers-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.more-input-flex-left,
+.more-input-flex-right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.more-input-flex-left input,
+.more-input-flex-right input {
+    width: calc(50% + 80px);
+}
+
+.more-input-flex-left {
+    align-items: flex-start;
+}
+
+.more-input-flex-right {
+    align-items: flex-end;
+}

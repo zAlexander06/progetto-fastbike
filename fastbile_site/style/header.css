@@ -1,3 +1,9 @@
+@media (max-width: 1150px) {
+    .t-btn {
+        display: none !important;
+    }
+}
+
 @media (max-width: 800px) {
     .parteHeaderInterna {
         flex-direction: column;
@@ -275,7 +281,8 @@
 
 /* stile per lo switch lingua */
 
-#lingua-pagina {
+#lingua-pagina,
+#lingua-pagina-mini-header {
     display: block;
     width: 45px;
     height: 30px;
@@ -388,6 +395,13 @@
     background-position: center;
 }
 
+#lingua-pagina-mini-header {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
 /* parte header per info */
 .soloLogoCompagnia-container {
     display: flex;
@@ -405,4 +419,47 @@
     cursor: pointer;
     align-items: flex-end;
     gap: 7.5px;
+}
+
+/* stile per ritorno alla home */
+.tornaHomepage {
+    position: absolute;
+    align-items: center;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    display: flex;
+    height: 40px;
+}
+
+#btn-torna-homepage {
+    opacity: 0.5;
+    display: flex;
+    font-family: "montserrat", sans-serif;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.3s ease;
+}
+
+#img-home {
+    background-image: url('https://www.svgrepo.com/show/422048/homepage.svg');
+    background-position: center;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.t-btn {
+    margin-left: 10px;
+}
+
+#btn-torna-homepage:hover {
+    opacity: 1;
 }

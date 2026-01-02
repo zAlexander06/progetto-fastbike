@@ -50,7 +50,7 @@
 
             <script>
                 document.getElementById("accesso-cliente").addEventListener("click", function() {
-                    window.location.href = "./noIndex/auth/login.php?lang=<?php echo $lang; ?>";
+                    window.location.href = "./noIndex/auth/login.php?lang=<?php echo $lang; ?>&page=login";
                 });
 
                 document.getElementById("sezione-informazioni").addEventListener("click", function() {
