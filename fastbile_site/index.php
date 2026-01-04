@@ -10,6 +10,8 @@ if ($lang === 'it') {
 }
 
 $pagina = $_GET['page'] ?? 'home';
+
+$paginaLogout = "noIndex/logout.php";
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +36,10 @@ $pagina = $_GET['page'] ?? 'home';
     </div>
     <app id="appPagina">
         <?php include "includes/header.php"; ?>
-        <main>
+        <main class="mainPaginaPrincipale">
             <?php
             // Cerchiamo la pagina nella cartella pages/
-            $file_pagina = "noIndex/" . $pagina . ".php";
+            $file_pagina = "noIndex/pubblica/" . $pagina . ".php";
 
             if (file_exists($file_pagina)) {
                 include $file_pagina;

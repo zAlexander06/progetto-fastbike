@@ -7,6 +7,11 @@
                     <span>Fastbike</span>
                 </div>
             </button>
+            <script>
+                document.getElementById("btn-logo").addEventListener("click", function() {
+                    window.location.href = "index.php";
+                })
+            </script>
         </div>
 
         <div class="sezione-navigazione">
@@ -38,23 +43,46 @@
                         <?php endif; ?>
                     </div>
                 </div>
+
+                <script>
+                    document.getElementById("lingua-pagina").addEventListener("mouseenter", mostraOpzioniLingua);
+                    document.getElementById("lingua-pagina").addEventListener("mouseleave", nascondiOpzioniLingua);
+                </script>
             </div>
 
-            <script>
-                document.getElementById("lingua-pagina").addEventListener("mouseenter", mostraOpzioniLingua);
-                document.getElementById("lingua-pagina").addEventListener("mouseleave", nascondiOpzioniLingua);
-            </script>
+            <div class="zona-utente-container">
+                <div id="accesso-cliente"></div>
+                <?php if (isset($_SESSION['utente_loggato']) && $_SESSION['utente_loggato'] === true) : ?>
+                    <div id="menu-cliente-container">
+                        <div class="menu-cliente-links">
+                            <a href="noIndex/area-utente/areaUtente.php?lang=<?php echo $lang; ?>"
+                                class="utente-link-container" Title="Il mio profilo">
+                                <div id="img-utente"></div>
+                                <span style="color: white;"><?php echo htmlspecialchars($_SESSION['utente_nome'] ?? "Utente"); ?></span>
+                            </a>
+                            <span id="logout-text"><?php echo $testo['header-menu-utente-logout']; ?></span>
+                        </div>
+                        <script>
+                            document.getElementById("accesso-cliente").addEventListener("click", gestioneMenuUtenteHeader);
+                            document.getElementById("logout-text").addEventListener("click", function() {
+                                window.location.href = "<?php echo $paginaLogout; ?>";
+                            })
+                        </script>
+                    </div>
+                <?php else: ?>
+                    <script>
+                        document.getElementById("accesso-cliente").addEventListener("click", function() {
+                            window.location.href = "./noIndex/auth/login.php?lang=<?php echo $lang; ?>&page=login";
+                        });
+                    </script>
+                <?php endif; ?>
+            </div>
 
-            <div id="accesso-cliente"></div>
             <div id="sezione-informazioni"></div>
 
             <script>
-                document.getElementById("accesso-cliente").addEventListener("click", function() {
-                    window.location.href = "./noIndex/auth/login.php?lang=<?php echo $lang; ?>&page=login";
-                });
-
                 document.getElementById("sezione-informazioni").addEventListener("click", function() {
-                    window.location.href = "./noIndex/info.php?lang=<?php echo $lang; ?>";
+                    window.location.href = "index.php?lang=<?php echo $lang; ?>&page=info";
                 });
             </script>
         </div>

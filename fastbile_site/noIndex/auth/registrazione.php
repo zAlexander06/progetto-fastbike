@@ -18,14 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Errore: La variabile di connessione \$conn non esiste. Controlla l'include.");
     }
 
-    $check = $conn->prepare("SELECT id FROM utenti WHERE email = ?");
+    $check = $conn->prepare("SELECT email, telefono FROM utenti WHERE email = ? OR telefono = ?");
 
     // Se il prepare fallisce, stampa l'errore del database
     if (!$check) {
         die("Errore nella preparazione della query: " . $conn->error);
     }
 
-    $check->bind_param("s", $email);
+    $check->bind_param("ss", $email, $telefonoUtente);
     $check->execute();
     $risultato = $check->get_result();
 
@@ -33,14 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $risultato->fetch_assoc();
 
         if ($row['email'] === $email) {
-            $_SESSION['errore_reg'] = "Esiste già un account con questa email!";
-        } else if ($row['telefono'] === $telefonoUtente) {
-            $_SESSION['errore_reg'] = "Questo numero di telefono è già registrato.";
+            $_SESSION['errore_reg'] = ($lang == "it") ? "Esiste già un account con questa email!" : "An account with this email already exists!";
+        } else {
+            $_SESSION['errore_reg'] = ($lang == "it") ? "Questo numero di telefono è già registrato!" : "This telephone number is already registered!";
         }
 
-        $_SESSION['vecchi_dati'] = $_POST;
-
-        header("Location: login.php?page=registration");
+        $_SESSION['vecchi_dati'] = $_POST;  // passa al login i dati inseriti + il messaggio di errore
+        header("Location: login.php?page=registration&lang=$lang");
         exit();
     } else {
         $pass_sicura = password_hash($password, PASSWORD_DEFAULT);
@@ -52,10 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($altroCheck->execute()) {
             unset($_SESSION['vecchi_dati']);
-            $_SESSION['successo_reg'] = "Registrazione completata con successo!";
+            $_SESSION['successo_reg'] = ($lang == "it") ? "Registrazione completata con successo!" : "Registration completed successfully!";
             header("Location: login.php?page=login&lang=" . $lang);
         } else {
-            $_SESSION['errore_reg'] = "Errore tecnico durante l'inserimento. Riprova.";
+            $_SESSION['errore_reg'] = ($lang == "it") ? "Errore tecnico: " . $conn->error : "Technical error: " . $conn->error;
             header("Location: login.php?page=registration&lang=" . $lang);
         }
     }

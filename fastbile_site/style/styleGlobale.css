@@ -16,6 +16,13 @@ body {
     }
 }
 
+@media (max-width: 550px) {
+    .url-sbagliato-int {
+        width: 60% !important;
+        text-align: center;
+    }
+}
+
 /* stile per l'errore dimensione schermo */
 
 #bloccoContenuto {
@@ -65,13 +72,25 @@ hr {
     border-radius: 5px
 }
 
+.mainPaginaPrincipale {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 0px;
+}
+
 /* stile per l'errore della pagina */
 .url-sbagliato-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    width: auto;
+    width: 100%;
+    height: auto;
+}
+
+.url-sbagliato-int {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 35vh;
     margin: 20px 0px;
 }

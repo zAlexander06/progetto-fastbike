@@ -13,6 +13,7 @@ $testo = [
     "nav_info" => "Info",
     "nav_contatti" => "Contatti",
     "header-bandiera_img" => "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+    "header-menu-utente-logout" => "Disconessione",
     "login-btn-homepage" => "torna Pagina Principale",
 
     // footer
@@ -22,6 +23,11 @@ $testo = [
     "footer-contatti" => "Contatti",
     "footer-term-cond" => "Termini & Condizioni",
     "footer-copyright" => "&copy; 2024 Fastbike Inc. Tutti i diritti riservati."
+];
+
+$testo_err_url = [
+    "titolo-testo" => "Non trovato",
+    "messaggio-err" => "Non è possibile visualizzare il contenuto richiesto in questo server!"
 ];
 
 $testo_login = [
@@ -48,3 +54,11 @@ $testo_registrazione = [
     "registrazione-testo-login" => "Hai un'account?",
     "registrazione-link-login" => "Accedi!",
 ];
+
+$testo_paginaPrinciaple = [];
+
+$testo_pagina_info = [];
+
+$testo_pagina_noleggiaBici = [];
+
+$testo_pagina_contatti = [];

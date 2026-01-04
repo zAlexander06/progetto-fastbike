@@ -6,11 +6,6 @@ $paginaCorrente = "login.php";
 
 session_start();
 
-if (isset($_SESSION['utente_id'])) {
-    header("Location: dashboard.php");
-    exit();
-}
-
 $lang = $_GET['lang'] ?? 'it';
 $file_lingua = "../../lang/{$lang}.php";
 
@@ -41,13 +36,15 @@ switch ($pagina) {
 
 /* parte del login */
 $messaggio_successo = $_SESSION['successo_reg'] ?? "";
-unset($_SESSION['successo_reg']); // Lo cancelliamo subito così non riappare al refresh
+unset($_SESSION['successo_reg']);  // Lo toglie al prossimo caricamento
 
+$errore_login = $_SESSION['errore_login'] ?? null;
+unset($_SESSION['errore_login']);
 
 /* parte della registrazione */
 $errore = $_SESSION['errore_reg'] ?? "";
 $vecchi_dati = $_SESSION['vecchi_dati'] ?? [];
-unset($_SESSION['errore_reg']); // Puliamo per il prossimo caricamento
+unset($_SESSION['errore_reg']);
 ?>
 
 <!DOCTYPE html>
@@ -94,18 +91,26 @@ unset($_SESSION['errore_reg']); // Puliamo per il prossimo caricamento
             <?php switch ($template):
                 case 'login': ?>
                     <div class="login-container">
+
                         <?php if ($messaggio_successo): ?>
-                            <div class="alert-success" style="color: green; background: #e6ffed; padding: 10px; border: 1px solid green; border-radius: 5px; margin-bottom: 15px;">
+                            <div style="color: green; background: #e6ffed; padding: 10px; border: 1px solid green; border-radius: 5px; margin-bottom: 15px;">
                                 <p style="margin: 0; font-weight: bold;"><?php echo $messaggio_successo; ?></p>
                             </div>
                         <?php endif; ?>
 
-                        <form class="loginForm" action="login.php" method="post">
+                        <?php if (isset($errore_login)): ?>
+                            <div style="color: red; background: #ffeeee; padding: 10px; border-radius: 5px; margin-bottom: 15px; border: 1px solid red;">
+                                <p style="margin: 0; font-weight: bold;"><?php echo htmlspecialchars($errore_login); ?></p>
+                            </div>
+                        <?php endif; ?>
+
+                        <form class="loginForm" action="autenticazioneUtente.php" method="post">
                             <h2>Login</h2>
+                            <input type="hidden" name="lang" value="<?php echo $lang; ?>">
                             <div class="login-form-container">
                                 <div class="singoloInput-login">
                                     <label for="email">Email</label>
-                                    <input type="email" id="email" name="email-esistente" placeholder="Email" class="input-login" required
+                                    <input type="text" id="email" name="email-esistente" placeholder="Email" class="input-login" required
                                         autocomplete="false">
                                 </div>
                                 <div class="singoloInput-login">
@@ -153,8 +158,9 @@ unset($_SESSION['errore_reg']); // Puliamo per il prossimo caricamento
 
                     <div class="register-container">
                         <form action="registrazione.php" method="post" class="registerForm">
+
                             <?php if ($errore): ?>
-                                <div class="errore-registrazione" style="color: red; background: #ffeeee; padding: 10px; border-radius: 5px; margin-bottom: 15px; border: 1px solid red;">
+                                <div style="color: red; background: #ffeeee; padding: 10px; border-radius: 5px; margin-bottom: 15px; border: 1px solid red;">
                                     <p style="margin: 0; font-weight: bold;"><?php echo $errore; ?></p>
                                 </div>
                             <?php endif; ?>

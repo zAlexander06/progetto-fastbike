@@ -1,3 +1,5 @@
+<?php $url_link = "index.php?lang=$lang"; ?>
+
 <div id="btn-menu-navigazione"></div>
 <div id="dialog-menu-container">
     <div id="dialog-menu">
@@ -8,25 +10,35 @@
         </div>
         <ul class="diverse-categorie-container">
             <li class="elemento-categoria-menu">
-                <a href="./noIndex/auth/login.php?lang=<?php echo $lang; ?>&page=login" class="link-menu-pagina">
-                    <span class="testo-link-menu"><?php echo $testo['nav_accedi'] ?></span>
+                <?php
+                if (isset($_SESSION['utente_loggato']) && $_SESSION['utente_loggato'] === true) {
+                    $linkMenu = "./noIndex/area-utente/areaUtente.php?lang=$lang";
+                    $testoMenu = "Vai alla tua area: " . htmlspecialchars($_SESSION['utente_nome'] ?? "Utente");
+                } else {
+                    $linkMenu = "./noIndex/auth/login.php?lang=$lang&page=login";
+                    $testoMenu = $testo['nav_accedi'];
+                }
+                ?>
+
+                <a href="<?php echo $linkMenu; ?>" class="link-menu-pagina">
+                    <span class="testo-link-menu"><?php echo $testoMenu; ?></span>
                     <div class="img-freccia-link"></div>
                 </a>
             </li>
             <li class="elemento-categoria-menu">
-                <a href="" class="link-menu-pagina">
+                <a href="<?php echo $url_link; ?>&page=noleggioBici.php" class="link-menu-pagina">
                     <span class="testo-link-menu"><?php echo $testo['nav_noleg-bici'] ?></span>
                     <div class="img-freccia-link"></div>
                 </a>
             </li>
             <li class="elemento-categoria-menu">
-                <a href="" class="link-menu-pagina">
+                <a href="<?php echo $url_link; ?>&page=info.php" class="link-menu-pagina">
                     <span class="testo-link-menu"><?php echo $testo['nav_info'] ?></span>
                     <div class="img-freccia-link"></div>
                 </a>
             </li>
             <li class="elemento-categoria-menu">
-                <a href="" class="link-menu-pagina">
+                <a href="<?php echo $url_link; ?>&page=contatti.php" class="link-menu-pagina">
                     <span class="testo-link-menu"><?php echo $testo['nav_contatti'] ?></span>
                     <div class="img-freccia-link"></div>
                 </a>
