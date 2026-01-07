@@ -29,9 +29,9 @@
                     </div>
                     <div class="contatto-email">
                         <h4><?php echo $testo['footer-iscriviti']; ?></h4>
-                        <form action="registrazione.php" method="post" id="footer-form-email">
+                        <form action="noIndex/login.php?lang=<?php echo $lang; ?>&page=registration" method="post" id="footer-form-email">
                             <input type="email" name="email-cliente" id="nuova-email-cliente" placeholder="e-mail">
-                            <input type="button" id="btn-iscrizione-footer">
+                            <input type="submit" id="btn-iscrizione-footer" value="" disabled>
                         </form>
                     </div>
                 </div>

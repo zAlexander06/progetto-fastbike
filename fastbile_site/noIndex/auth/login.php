@@ -12,6 +12,14 @@ $file_lingua = "../../lang/{$lang}.php";
 $pagina = $_GET['page'] ?? '';
 $url_sbagliato = false;
 
+$email_da_visualizzare = "";
+
+if (!empty($vecchi_dati['nuovoEmail'])) {
+    $email_da_visualizzare = $vecchi_dati['nuovoEmail'];
+} elseif (!empty($_POST['email-cliente'])) {
+    $email_da_visualizzare = $_POST['email-cliente'];
+}
+
 if (file_exists($file_lingua)) {
     include $file_lingua;
 } else {
@@ -173,7 +181,7 @@ unset($_SESSION['errore_reg']);
 
                                 <div class="input-registrazioni-container">
                                     <label for="email-register">Email <span style="font-weight: bold">*</span></label>
-                                    <input type="email" name="nuovoEmail" id="email-register" class="input-register" value="<?php echo htmlspecialchars($vecchi_dati['email'] ?? ''); ?>" placeholder=" Email" required>
+                                    <input type="email" name="nuovoEmail" id="email-register" class="input-register" value="<?php echo htmlspecialchars($email_da_visualizzare); ?>" placeholder=" Email" required>
                                 </div>
 
                                 <div class="input-registrazioni-container">

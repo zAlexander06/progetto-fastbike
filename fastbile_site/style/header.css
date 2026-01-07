@@ -565,11 +565,3 @@
 #btn-torna-homepage:hover {
     opacity: 1;
 }
-
-/* parte privata dell'header */
-.header-privato {
-    height: 75px;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: row;
-}

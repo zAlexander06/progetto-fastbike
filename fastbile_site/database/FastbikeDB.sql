@@ -16,7 +16,7 @@ CREATE TABLE Sedi (
     coordinataY FLOAT NOT NULL,
     via VARCHAR(255) NOT NULL,
     citta VARCHAR(255) NOT NULL DEFAULT 'Genova',
-    cap VARCHAR(10) NOT NULL -- Accorciato, 255 è troppo per un CAP
+    cap VARCHAR(10) NOT NULL
 );
 
 CREATE TABLE Biciclette (

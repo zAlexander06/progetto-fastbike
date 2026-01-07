@@ -69,6 +69,16 @@ document.addEventListener("DOMContentLoaded", function () {
     btn_logo.addEventListener("click", function () {
         window.location.href = "index.php";
     });
-})
 
-// parte del footer
+    // parte del footer
+
+    var emailNuovoCliente = document.getElementById("nuova-email-cliente");
+    var btn_iscr_footer = document.getElementById("btn-iscrizione-footer");
+
+    function controlloEsistenzaEmail() {
+        var haScrittoQualcosa = this.value.trim() !== "";
+        btn_iscr_footer.disabled = !haScrittoQualcosa;
+    }
+
+    emailNuovoCliente.addEventListener("input", controlloEsistenzaEmail);
+});
