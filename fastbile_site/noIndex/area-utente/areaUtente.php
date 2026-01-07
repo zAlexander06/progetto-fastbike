@@ -1,12 +1,12 @@
 <?php
 session_start();
+include "check_utente.php";
+include "../connDB";
 
 $lang = $_GET['lang'] ?? 'it';
 
-if (empty($_SESSION['utente_loggato']) || $_SESSION['utente_loggato'] !== true) {
-    header("Location: ../auth/login.php?lang=" . $lang . "&page=login");
-    exit();
-}
+$area_privata = true; // <-- Qui "accendi" l'interruttore
+$page_title = "La tua Area - Fastbike";
 
 $nomeUtente = $_SESSION['utente_nome'];
 $idUtente = $_SESSION['utente_id'];
@@ -23,16 +23,18 @@ $idUtente = $_SESSION['utente_id'];
 </head>
 
 <body>
-    <header>
-        <h1>Area Personale Fastbike</h1>
-        <p>Benvenuto, <strong><?php echo htmlspecialchars($nomeUtente); ?></strong></p>
-    </header>
-
-    <main>
-        <p>Qui puoi gestire i tuoi noleggi e il tuo profilo.</p>
-
-        <a href="../logout.php">Esci (Logout)</a>
-    </main>
+    <div id="bloccoContenuto">
+        <?php include "../../includes/minWidth.php"; ?>
+    </div>
+    <app id="appPagina">
+        <?php include "../../includes/header.php"; ?>
+        <main class="mainPaginaPrincipale">
+            <h1>Area Personale Fastbike</h1>
+            <p>Benvenuto, <strong><?php echo htmlspecialchars($nomeUtente); ?></strong></p>
+            <p>Qui puoi gestire i tuoi noleggi e il tuo profilo.</p>
+            <a href="../logout.php">Esci (Logout)</a>
+        </main>
+    </app>
 </body>
 
 </html>

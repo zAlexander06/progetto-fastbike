@@ -29,6 +29,10 @@
         display: flex !important;
         flex-direction: column !important;
     }
+
+    #menu-navigazione-container {
+        display: block !important;
+    }
 }
 
 @media (max-width: 600px) {
@@ -79,6 +83,10 @@
 }
 
 /* stile per il menu navigazione */
+#menu-navigazione-container {
+    display: none;
+}
+
 #btn-menu-navigazione {
     background-image: url('https://www.svgrepo.com/show/348740/menu.svg');
     background-size: contain;
@@ -556,4 +564,12 @@
 
 #btn-torna-homepage:hover {
     opacity: 1;
+}
+
+/* parte privata dell'header */
+.header-privato {
+    height: 75px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
 }

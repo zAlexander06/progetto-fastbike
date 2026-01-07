@@ -49,6 +49,23 @@ $testo_registrazione = [
     "registrazione-testo-dataNascita" => "Date of Birth",
     "registrazione-testo-documento" => "Document",
     "registrazione-testo-codFiscale" => "Tax ID code / DNI",
+
+    /* parte del controllo password */
+
+    "registrazione-controllo-password-titolo" => "Enter a Password that contains at least",
+    "registrazione-controllo-password-mxChar" => "8 Characters",
+    "registrazione-controllo-password-noSpace" => "No Space",
+    "registrazione-controllo-password-Upper" => "A Uppercase Word",
+    "registrazione-controllo-password-Lower" => "A Lowercase Word",
+    "registrazione-controllo-password-wNum" => "A Number",
+    "registrazione-controllo-password-wSym" => "A Symbole",
+
+    /* Termini e Condizioni */
+    "registrazione-termini-condizioni-prima" => "Accept ",
+    "registrazione-termini-condizioni" => "Terms & Conditions",
+
+    /* parte del bottone e link login */
+
     "registrazione-testo-conv-pass" => "Convalidate",
     "registrazione-btn" => "Register Here!",
     "registrazione-testo-login" => "Do you have an account?",

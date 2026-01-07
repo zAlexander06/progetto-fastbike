@@ -26,19 +26,19 @@
                 </a>
             </li>
             <li class="elemento-categoria-menu">
-                <a href="<?php echo $url_link; ?>&page=noleggioBici.php" class="link-menu-pagina">
+                <a href="<?php echo $url_link; ?>&page=noleggioBici" class="link-menu-pagina">
                     <span class="testo-link-menu"><?php echo $testo['nav_noleg-bici'] ?></span>
                     <div class="img-freccia-link"></div>
                 </a>
             </li>
             <li class="elemento-categoria-menu">
-                <a href="<?php echo $url_link; ?>&page=info.php" class="link-menu-pagina">
+                <a href="<?php echo $url_link; ?>&page=info" class="link-menu-pagina">
                     <span class="testo-link-menu"><?php echo $testo['nav_info'] ?></span>
                     <div class="img-freccia-link"></div>
                 </a>
             </li>
             <li class="elemento-categoria-menu">
-                <a href="<?php echo $url_link; ?>&page=contatti.php" class="link-menu-pagina">
+                <a href="<?php echo $url_link; ?>&page=contatti" class="link-menu-pagina">
                     <span class="testo-link-menu"><?php echo $testo['nav_contatti'] ?></span>
                     <div class="img-freccia-link"></div>
                 </a>

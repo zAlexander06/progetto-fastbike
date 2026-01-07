@@ -109,21 +109,22 @@ unset($_SESSION['errore_reg']);
                             <input type="hidden" name="lang" value="<?php echo $lang; ?>">
                             <div class="login-form-container">
                                 <div class="singoloInput-login">
-                                    <label for="email">Email</label>
-                                    <input type="text" id="email" name="email-esistente" placeholder="Email" class="input-login" required
+                                    <label for="email-login">Email</label>
+                                    <input type="text" id="email-login" name="email-esistente" placeholder="Email" class="input-login" required
                                         autocomplete="false">
                                 </div>
                                 <div class="singoloInput-login">
-                                    <label for="password">Password</label>
-                                    <input type="password" id="password" name="password-esistente" placeholder="Password"
+                                    <label for="password-login">Password</label>
+                                    <input type="password" id="password-login" name="password-esistente" placeholder="Password"
                                         class="input-login" required>
                                 </div>
                             </div>
                             <div class="form-btn-invio">
-                                <button type="submit">
+                                <button type="submit" id="btn-login" disabled>
                                     <?php echo $testo_login['login-btn']; ?>
                                 </button>
                             </div>
+                            <script src="../../script/login.js"></script>
                         </form>
 
                         <div class="sezione-newUtente-recupero">
@@ -153,9 +154,6 @@ unset($_SESSION['errore_reg']);
 
                 <?php break;
                 case 'registration': ?>
-
-                    <!-- manca i controlli prima di dell'invio al database -->
-
                     <div class="register-container">
                         <form action="registrazione.php" method="post" class="registerForm">
 
@@ -174,8 +172,8 @@ unset($_SESSION['errore_reg']);
                             <div class="register-form-container">
 
                                 <div class="input-registrazioni-container">
-                                    <label for="email">Email <span style="font-weight: bold">*</span></label>
-                                    <input type="email" name="nuovoEmail" id="email" class="input-register" value="<?php echo htmlspecialchars($vecchi_dati['email'] ?? ''); ?>" placeholder=" Email" required>
+                                    <label for="email-register">Email <span style="font-weight: bold">*</span></label>
+                                    <input type="email" name="nuovoEmail" id="email-register" class="input-register" value="<?php echo htmlspecialchars($vecchi_dati['email'] ?? ''); ?>" placeholder=" Email" required>
                                 </div>
 
                                 <div class="input-registrazioni-container">
@@ -203,9 +201,9 @@ unset($_SESSION['errore_reg']);
                                         </div>
 
                                         <div class="more-input-flex-right">
-                                            <label for="dataNascita"><?php echo $testo_registrazione['registrazione-testo-dataNascita']; ?></label>
+                                            <label for="dataNascita"><?php echo $testo_registrazione['registrazione-testo-dataNascita']; ?> <span style="font-weight: bold">*</span></label>
                                             <input type="date" name="dataNascita" id="dataNascita" class="input-register"
-                                                placeholder="numero di Telefono" value="<?php echo htmlspecialchars($vecchi_dati['dataNascita'] ?? ''); ?>">
+                                                placeholder="numero di Telefono" value="<?php echo htmlspecialchars($vecchi_dati['dataNascita'] ?? ''); ?>" required>
                                         </div>
                                     </div>
                                 </div>
@@ -221,25 +219,53 @@ unset($_SESSION['errore_reg']);
                                     <div class="more-containers-input">
 
                                         <div class="more-input-flex-left">
-                                            <label for="password">Password</label>
-                                            <input type="password" name="nuovaPassword" id="password" class="input-register"
+                                            <label for="password-register">Password</label>
+                                            <input type="password" name="nuovaPassword" id="password-register" class="input-register"
                                                 placeholder="Password" required>
+                                            <!-- <input type="button" class="img-mostra-password"> -->
                                         </div>
 
                                         <div class="more-input-flex-right">
                                             <label for="convPassword"><?php echo $testo_registrazione['registrazione-testo-conv-pass']; ?> Password</label>
                                             <input type="password" name="convPassword" id="convPassword" class="input-register"
                                                 placeholder="<?php echo $testo_registrazione['registrazione-testo-conv-pass']; ?> Password" required>
+                                            <!-- <input type="button" class="img-mostra-password"> -->
                                         </div>
                                     </div>
+                                </div>
+
+                                <hr class="hr-boh">
+
+                                <div class="controllo-password">
+                                    <p style="margin: 0px; font-weight: bold;"><?php echo $testo_registrazione['registrazione-controllo-password-titolo']; ?>:</p>
+                                    <ol class="controllo-password-lista">
+                                        <li id="mx-char"><?php echo $testo_registrazione['registrazione-controllo-password-mxChar']; ?></li>
+                                        <li id="no-spazio"><?php echo $testo_registrazione['registrazione-controllo-password-noSpace']; ?></li>
+                                        <li id="Up"><?php echo $testo_registrazione['registrazione-controllo-password-Upper']; ?></li>
+                                        <li id="Low"><?php echo $testo_registrazione['registrazione-controllo-password-Lower']; ?></li>
+                                        <li id="num"><?php echo $testo_registrazione['registrazione-controllo-password-wNum']; ?></li>
+                                        <li id="symbol"><?php echo $testo_registrazione['registrazione-controllo-password-wSym']; ?> (es. !@#$%)</li>
+                                    </ol>
+                                </div>
+
+                                <hr class="hr-boh">
+
+                                <div class="terminiCondizioni">
+                                    <label>
+                                        <input type="checkbox" name="terms" id="idTerminiCondizioni" required>
+                                        <?php echo $testo_registrazione['registrazione-termini-condizioni-prima']; ?>
+                                        <!-- <a href="https://cdn.donmai.us/original/70/2b/__nakano_itsuki_go_toubun_no_hanayome_drawn_by_gabiran__702bf74b7537ef9b2f13faacb27cc5bc.jpg">Termini e Condizioni</a> -->
+                                        <a href="./TerminiCondizioni.html"><?php echo $testo_registrazione['registrazione-termini-condizioni']; ?></a>
+                                    </label>
                                 </div>
                             </div>
 
                             <div class="form-btn-invio">
-                                <button type="submit">
+                                <button type="submit" id="btn-registrazione" disabled>
                                     <?php echo $testo_registrazione['registrazione-btn']; ?>
                                 </button>
                             </div>
+                            <script src="../../script/registrazione.js"></script>
                         </form>
 
                         <div class="sezione-ritorno-login">

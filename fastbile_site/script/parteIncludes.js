@@ -63,4 +63,12 @@ function nascondiMenu() {
     document.getElementById("dialog-menu-container").classList.remove("blur-dietro");
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    var btn_logo = document.getElementById("btn-logo");
+
+    btn_logo.addEventListener("click", function () {
+        window.location.href = "index.php";
+    });
+})
+
 // parte del footer

@@ -26,6 +26,7 @@
     .more-input-flex-right input {
         width: 100% !important;
     }
+
 }
 
 @media (max-width: 1150px) {
@@ -50,10 +51,13 @@
     }
 
     .loginForm,
-    .sezione-newUtente-recupero,
+    .sezione-newUtente-recupero {
+        width: 70% !important;
+    }
+
     .sezione-ritorno-login,
     .registerForm {
-        width: 70% !important;
+        width: 80% !important;
     }
 
     .sezione-newUtente-recupero,
@@ -165,13 +169,16 @@
     display: flex;
     gap: 20px;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 50%;
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
     overflow: auto;
+}
+
+.login-container {
+    justify-content: center;
 }
 
 .login-container h2,
@@ -213,38 +220,68 @@
     transition: all 0.3s ease;
 }
 
-#email::placeholder,
+#email-register::placeholder,
+#email-login::placeholder,
 #nome::placeholder,
 #cognome::placeholder,
 #numTelefono::placeholder,
 #dataNascita::placeholder,
 #codFiscale::placeholder,
-#password::placeholder #password::placeholder {
+#password-login::placeholder,
+#password-register::placeholder,
+#convPassword::placeholder {
     color: #999;
     font-style: italic;
 }
 
-#email:hover,
+#email-register:hover,
+#email-login:hover,
 #nome:hover,
 #cognome:hover,
 #numTelefono:hover,
 #dataNascita:hover,
 #codFiscale:hover,
-#password:hover #password:hover {
+#password-login:hover,
+#password-register:hover,
+#convPassword:hover {
     outline: none;
     box-shadow: 0 0 5px rgba(0, 162, 255, 0.5);
 }
 
-#email:focus,
+#email-register:focus,
+#email-login:focus,
 #nome:focus,
 #cognome:focus,
 #numTelefono:focus,
 #dataNascita:focus,
 #codFiscale:focus,
-#password:focus #password:focus {
+#password-login:focus,
+#password-register:focus,
+#convPassword:focus {
     outline: none;
     box-shadow: none;
     border-color: rgb(0, 162, 255);
+}
+
+/* stile per gli input password (da migliorare ancora) */
+.register-input-password {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.img-mostra-password {
+    position: absolute;
+    right: calc(10% + 10px);
+    background-color: transparent;
+    background-image: url("https://www.svgrepo.com/show/489733/eye-open.svg");
+    background-position: center;
+    background-size: contain;
+    border: 0px;
+    width: 30px !important;
+    height: 30px;
+    cursor: pointer;
 }
 
 /* stile per il pulsante di invio */
@@ -254,21 +291,37 @@
     height: 40px;
 }
 
-.form-btn-invio button {
+#btn-registrazione,
+#btn-login {
     width: 100%;
-    height: 100%;
-    background-color: rgb(0, 162, 255);
-    color: white;
+    padding: 14px;
+    background: rgba(0, 162, 255, 0.8);
+    color: #fff;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 8px;
     font-size: 16px;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.2s ease;
 }
 
-.form-btn-invio button:hover {
-    background-color: #1c02ff;
+#btn-registrazione:not(:disabled):hover,
+#btn-login:not(:disabled):hover {
+    background: #1b02ff;
+    transform: translateY(-2px);
 }
+
+#btn-registrazione:active,
+#btn-login:active {
+    transform: translateY(0);
+}
+
+#btn-registrazione:disabled,
+#btn-login:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 
 /* stile per la parte sotto del form */
 .sezione-newUtente-recupero,
@@ -346,6 +399,38 @@
     align-items: flex-end;
 }
 
-/* stile per il successo REGISTRAZIONE */
+/* stile per il controllo password */
+.controllo-password {
+    width: 100%;
+    height: auto;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    padding: 10px 0px;
+    text-align: center;
+}
 
-/* stile per l'errore REGISTRAZIONE */
+.controllo-password-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 0px 0px 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+/* stile finale per i termini e condizioni */
+.terminiCondizioni {
+    display: flex;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+/* stile complementari */
+.hr-boh {
+    width: 100%;
+    border: 1px solid black;
+    margin: 0px;
+}

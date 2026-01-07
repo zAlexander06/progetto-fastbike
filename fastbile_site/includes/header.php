@@ -7,11 +7,6 @@
                     <span>Fastbike</span>
                 </div>
             </button>
-            <script>
-                document.getElementById("btn-logo").addEventListener("click", function() {
-                    window.location.href = "index.php";
-                })
-            </script>
         </div>
 
         <div class="sezione-navigazione">
@@ -69,6 +64,12 @@
                             })
                         </script>
                     </div>
+                <?php elseif (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) : ?>
+                    <script>
+                        document.getElementById("accesso-cliente").addEventListener("click", function() {
+                            window.location.href = "./noIndex/area-riservata/areaRiservata.php?lang=<?php echo $lang; ?>";
+                        });
+                    </script>
                 <?php else: ?>
                     <script>
                         document.getElementById("accesso-cliente").addEventListener("click", function() {
@@ -86,9 +87,9 @@
                 });
             </script>
         </div>
-    </div>
 
-    <div id="menu-navigazione-container">
-        <?php include "header-menu.php"; ?>
+        <div id="menu-navigazione-container">
+            <?php include "header-menu.php"; ?>
+        </div>
     </div>
 </header>

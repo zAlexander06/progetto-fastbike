@@ -11,8 +11,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cognomeUtente = $_POST['cognomeUtente'];
     $telefonoUtente = $_POST['telefono'];
     $dataNascitaUtente = $_POST['dataNascita'] ?? null;
-    $codFiscaleUtente = $_POST['codFiscaleUtente'];
+    $codFiscaleUtente = strtoupper($_POST['codFiscaleUtente']);
     $password = $_POST['nuovaPassword'];
+    $passwordConfirm = $_POST['convPassword'];
+
+    $errori = [];
+
+    // controllo se i dati sono corretti
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errori[] = ($lang == "it") ? "Formato email non valido." : "Invalid email format.";
+    }
+
+    // Password robusta? (Regex che riflette il tuo JS)
+    $regexPass = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/';
+    if (!preg_match($regexPass, $password)) {
+        $errori[] = ($lang == "it") ? "La password non rispetta i requisiti di sicurezza." : "Password does not meet security requirements.";
+    }
+
+    // Password uguali?
+    if ($password !== $passwordConfirm) {
+        $errori[] = ($lang == "it") ? "Le password non coincidono." : "Passwords do not match.";
+    }
+
+    if (empty($dataNascitaUtente)) {
+        $errori[] = ($lang == "it") ? "La data di nascita è obbligatoria" : "Your Birthday is obligatory";
+    } else {
+        $dataNascitaObj = new DateTime($dataNascitaUtente);
+        $oggi = new DateTime();
+        $eta = $oggi->diff($dataNascitaObj)->y;
+        if ($eta < 18) {
+            $errori[] = ($lang == "it") ? "Devi essere maggiorenne per registrarti." : "You must be 18 or older to register.";
+        }
+    }
+
+    if (strlen($codFiscaleUtente) !== 16) {
+        $errori[] = ($lang == "it") ? "Il Codice Fiscale deve essere di 16 caratteri." : "Tax Code must be 16 characters.";
+    }
+
+    if (!empty($errori)) {
+        $_SESSION['errore_reg'] = implode("<br>", $errori);
+        $_SESSION['vecchi_dati'] = $_POST;
+        header("Location: login.php?page=registration&lang=$lang");
+        exit();
+    }
 
     if (!isset($conn)) {
         die("Errore: La variabile di connessione \$conn non esiste. Controlla l'include.");
@@ -44,10 +85,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $pass_sicura = password_hash($password, PASSWORD_DEFAULT);
 
-        $query = "INSERT INTO utenti (nome, cognome, email, password, telefono, dataNascita) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO utenti (nome, cognome, email, password, telefono, codiceFiscale, dataNascita) VALUES (?, ?, ?, ?, ?, ?)";
 
         $altroCheck = $conn->prepare($query);
-        $altroCheck->bind_param("ssssss", $nomeUtente, $cognomeUtente, $email, $pass_sicura, $telefonoUtente, $dataNascitaUtente);
+        $altroCheck->bind_param("sssssss", $nomeUtente, $cognomeUtente, $email, $pass_sicura, $telefonoUtente, $codFiscaleUtente, $dataNascitaUtente);
 
         if ($altroCheck->execute()) {
             unset($_SESSION['vecchi_dati']);

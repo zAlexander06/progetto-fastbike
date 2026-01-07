@@ -51,6 +51,23 @@ $testo_registrazione = [
     "registrazione-testo-codFiscale" => "Codice Fiscale",
     "registrazione-testo-conv-pass" => "Convalida",
     "registrazione-btn" => "Registrati",
+
+    /* parte del controllo password */
+
+    "registrazione-controllo-password-titolo" => "Inserire una Password che contenga almeno",
+    "registrazione-controllo-password-mxChar" => "8 caratteri",
+    "registrazione-controllo-password-noSpace" => "Nessuno Spazio",
+    "registrazione-controllo-password-Upper" => "Una lettera Maiuscula",
+    "registrazione-controllo-password-Lower" => "Una lettera Minuscola",
+    "registrazione-controllo-password-wNum" => "Un Numero",
+    "registrazione-controllo-password-wSym" => "Un Simbolo",
+
+    /* Termini e Condizioni */
+    "registrazione-termini-condizioni-prima" => "Accetto i ",
+    "registrazione-termini-condizioni" => "Termini e Condizioni",
+
+    /* parte del bottone e link login */
+
     "registrazione-testo-login" => "Hai un'account?",
     "registrazione-link-login" => "Accedi!",
 ];
